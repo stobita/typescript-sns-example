@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import * as bcrypt from 'bcrypt';
+import { Post } from 'src/posts/post.entity';
 
 @Entity()
 export class User {
@@ -10,4 +12,10 @@ export class User {
 
   @Column()
   password: string;
+
+  @OneToMany(
+    type => Post,
+    post => post.user,
+  )
+  posts: Post[];
 }
