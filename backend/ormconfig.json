@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-  "host": "localhost",
+  "host": "rdb",
   "port": 5432,
   "username": "example",
   "password": "example",
