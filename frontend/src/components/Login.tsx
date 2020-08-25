@@ -7,7 +7,7 @@ import { UserContext } from '../App';
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { setIsSigned } = useContext(UserContext);
+  const { setIsSigned, setToken } = useContext(UserContext);
   const history = useHistory();
   const handleOnChangeUsername = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -25,10 +25,11 @@ export const Login = () => {
         username,
         password,
       })
-      .then(() => {
+      .then((res) => {
         setUsername('');
         setPassword('');
         setIsSigned(true);
+        setToken(res.data.access_token);
         history.push('/');
       })
       .catch((err) => {

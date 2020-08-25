@@ -49,7 +49,7 @@ export const Signup = () => {
             value={password}
           />
         </Item>
-        <button>login</button>
+        <button>signup</button>
       </form>
       <Link to="/login">login</Link>
     </Wrapper>
